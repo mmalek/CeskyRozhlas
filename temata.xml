@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audio>
+<config>
+
+<item>
+<title>Český rozhlas - zpravy.rozhlas.cz (publicistika)</title>
+<export>http://www.rozhlas.cz/podcast_export/zpravy-publicistika</export>
+<description>Aklutální publicistika na zpravy.rozhlas.cz</description>
+<url>http://www.rozhlas.cz/eu/audio</url>
+<file>zpravy-publicistika.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/zpravy.jpeg</img>
+<category>News &amp; Politics</category>
+</item>
+
+<item>
+<title>Český rozhlas - zpravy.rozhlas.cz (rozhovory)</title>
+<export>http://www.rozhlas.cz/podcast_export/zpravy-rozhovory</export>
+<description>Aklutální rozhovory na zpravy.rozhlas.cz</description>
+<url>http://www.rozhlas.cz/eu/audio</url>
+<file>zpravy-rozhovory.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/zpravy.jpeg</img>
+<category>News &amp; Politics</category>
+</item>
+
+
+<item>
+<title>Český rozhlas - komentáře a názory</title>
+<export>http://www.rozhlas.cz/podcast_export/komentare</export>
+<description>Rádio na přání</description>
+<url>http://hledani.rozhlas.cz/iradio/</url>
+<file>komentare.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/komentare.jpeg</img>
+<category>News &amp; Politics</category>
+</item>
+
+
+<item>
+<title>Český rozhlas - kultura</title>
+<export>http://www.rozhlas.cz/podcast_export/kultura</export>
+<description>Rádio na přání</description>
+<url>http://hledani.rozhlas.cz/iradio/</url>
+<file>kultura.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/kultura.jpg</img>
+<category>Art</category>
+</item>
+
+<item>
+<title>Český rozhlas - náboženství</title>
+<export>http://www.rozhlas.cz/podcast_export/nabozenstvi</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/nabozenstvi/audio</url>
+<file>nabozenstvi.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/nabozenstvi.jpg</img>
+<category>Religion &amp; Spirituality</category>
+</item>
+
+<item>
+<title>Český rozhlas - cestování</title>
+<export>http://www.rozhlas.cz/podcast_export/cestovani</export>
+<description>Rádio na přání</description>
+<url>http://hledani.rozhlas.cz/iradio/</url>
+<file>cestovani.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Travel</category>
+</item>
+
+
+<item>
+<title>Český rozhlas - věda a technika</title>
+<export>http://www.rozhlas.cz/podcast_export/veda</export>
+<description>Rádio na přání</description>
+<url>http://hledani.rozhlas.cz/iradio/</url>
+<file>veda.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/veda.jpg</img>
+<category>Science</category>
+</item>
+
+
+<item>
+<title>Český rozhlas - příroda</title>
+<export>http://www.rozhlas.cz/podcast_export/priroda</export>
+<description>Rádio na přání</description>
+<url>http://hledani.rozhlas.cz/iradio/</url>
+<file>priroda.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/priroda.jpg</img>
+<category>Nature</category>
+</item>
+
+<item>
+<title>Český rozhlas - historie</title>
+<export>http://www.rozhlas.cz/podcast_export/historie</export>
+<description>Rádio na přání</description>
+<url>http://hledani.rozhlas.cz/iradio/</url>
+<file>historie.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Society &amp; Culture</category>
+</item>
+
+<item>
+<title>Český rozhlas - digitální média</title>
+<export>http://www.rozhlas.cz/podcast_export/digital</export>
+<description>Rádio na přání</description>
+<url>http://hledani.rozhlas.cz/iradio/</url>
+<file>digital.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Media</category>
+</item>
+
+<item>
+<title>Český rozhlas - životní styl</title>
+<export>http://www.rozhlas.cz/podcast_export/styl</export>
+<description>Rádio na přání</description>
+<url>http://hledani.rozhlas.cz/iradio/</url>
+<file>styl.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Live style</category>
+</item>
+
+
+<item>
+<title>Český rozhlas - Planetárium</title>
+<export>http://www.rozhlas.cz/podcast_export/planetarium</export>
+<description>Rádio na přání­</description>
+<url>http://www.rozhlas.cz/planetarium</url>
+<file>planetarium.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Science</category>
+</item>
+
+
+<item>
+<title>Český rozhlas - Devítková výročí­</title>
+<export>http://www.rozhlas.cz/podcast_export/devitky</export>
+<description>Rádio na přání­</description>
+<url>http://www.rozhlas.cz/devitky</url>
+<file>devitky.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Society &amp; Culture</category>
+</item>
+
+
+</config>
+</audio>

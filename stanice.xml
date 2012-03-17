@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audio>
+<config>
+<item>
+<title>Český rozhlas 1 - Radiožurnál</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=5</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/radiozurnal</url>
+<file>radiozurnal.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/podcast-radiozurnal.jpg</img>
+<category>News &amp; Politics</category>
+</item>
+
+<item><title>Český rozhlas 2 - Praha</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=7</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/praha/</url>
+<file>praha.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/podcast-praha.jpg</img>
+<category>Government &amp; Organizations</category>
+</item>
+
+<item><title>Český rozhlas 3 - Vltava</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=6</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/vltava/</url>
+<file>vltava.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/podcast-vltava.jpg</img>
+<category>Arts &amp; Entertainment</category>
+</item>
+
+<item><title>Český rozhlas 6</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=8</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/cro6/</url>
+<file>cro6.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/podcast-cro6.jpg</img>
+<category>News &amp; Politics</category>
+</item>
+
+<item><title>Český rozhlas Leonardo</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=53</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/leonardo/</url>
+<file>leonardo.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/podcast-leonardo.jpg</img>
+<category>Education</category>
+</item>
+
+
+<item><title>Český rozhlas Pardubice</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=28</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/pardubice/</url>
+<file>pardubice.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+
+<item><title>Český rozhlas Brno</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=11</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/brno/</url>
+<file>brno.rss</file>
+<copyright>Ăský rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+
+<item><title>Český rozhlas Ostrava</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=13</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/ostrava/</url>
+<file>ostrava.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+
+<item><title>Český rozhlas  Plzeň</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=17</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/plzen/</url>
+<file>plzen.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+<item><title>Český rozhlas  Sever</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=12&amp;aaa</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/sever/</url>
+<file>sever.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+
+<item><title>Český rozhlas Liberec</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=52</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/liberec/</url>
+<file>liberec.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+</item>
+
+<item><title>Český rozhlas České Budějovice</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=18</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/cb/</url>
+<file>cb.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+<item><title>Český rozhlas Regina</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=33</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/regina/</url>
+<file>regina.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+
+<item><title>Český rozhlas Region, Střední Čechy</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=31</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/strednicechy/</url>
+<file>strednicechy.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+<item><title>Český rozhlas Region, Vysočina</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=27</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/vysocina/</url>
+<file>vysocina.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+<item><title>Český rozhlas Olomouc</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=14</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/olomouc/</url>
+<file>olomouc.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+<item><title>Český rozhlas Vysočina</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=48</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/vysocina/</url>
+<file>vysocina.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+<item><title>Český rozhlas  Rádio Česko</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=47</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/radio_cesko/</url>
+<file>radio_cesko.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<img>http://www2.rozhlas.cz/podcast/img/podcast-radio_cesko.jpg</img>
+<category>News &amp; Politics</category>
+</item>
+
+
+<item><title>Český rozhlas Hradec Králové</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=15</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/hradec/</url>
+<file>hradec.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Government &amp; Organizations</category>
+</item>
+
+<item><title>Český rozhlas  Radio Wave</title>
+<export>http://www.rozhlas.cz/podcast_export/default/?p_st=56</export>
+<description>Rádio na přání</description>
+<url>http://www.rozhlas.cz/iradio/radiowave/</url>
+<file>radiowave.rss</file>
+<copyright>Český rozhlas 2000 -</copyright>
+<category>Music</category>
+</item>
+</config></audio>

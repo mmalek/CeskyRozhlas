@@ -9,7 +9,7 @@
 -------------------------------------------------------------------------------
 
 -- stuff we use
-local assert, ipairs, pairs, string, type = assert, ipairs, pairs, string, type
+local assert, ipairs, pairs, string, type, io = assert, ipairs, pairs, string, type, io
 
 local oo                     = require("loop.simple")
 
@@ -25,16 +25,15 @@ local SimpleMenu             = require("jive.ui.SimpleMenu")
 local Textarea               = require("jive.ui.Textarea")
 local debug                  = require("jive.utils.debug")
 local Player                 = require("jive.slim.Player")
+local System                 = require("jive.System")
 
 local appletManager          = appletManager
 local jiveMain               = jiveMain
 local jnt                    = jnt
 
-local STATIONS_HOST = "www.rozhlas.cz"
-local STATIONS_QUERY = "/podcast_export/stanice"
-
-local TEMATA_HOST = "www.rozhlas.cz"
-local TEMATA_QUERY = "/podcast_export/temata"
+local PODCAST_EXPORT_PREFIX="applets/CeskyRozhlas/"
+local STATIONS_FILE = "stanice.xml" -- downloaded from "http://www.rozhlas.cz/podcast_export/stanice" and converted to UTF-8
+local TEMATA_FILE = "temata.xml"    -- downloaded from "http://www.rozhlas.cz/podcast_export/temata" and converted to UTF-8
 
 local PODCAST_HOST = "www2.rozhlas.cz"
 local PODCAST_QUERY = "/podcast/podcast_porady.php?p_po="
@@ -68,11 +67,11 @@ function show(self, menuItem)
 -- 	menu:setComparator(menu.itemComparatorAlpha)
 	menu:addItem( {
 		text = self:string('STATIONS'),
-		callback = function(event,menuItem) self:showPodcastExport(menu, menuItem, STATIONS_HOST, STATIONS_QUERY) end
+		callback = function(event,menuItem) self:showPodcastExport(menu, menuItem, STATIONS_FILE) end
 	} )
 	menu:addItem( {
 		text = self:string('TOPICS'),
-		callback = function(event,menuItem) self:showPodcastExport(menu, menuItem, TEMATA_HOST,   TEMATA_QUERY) end
+		callback = function(event,menuItem) self:showPodcastExport(menu, menuItem, TEMATA_FILE) end
 	} )
 	window:addWidget(menu)
 
@@ -80,13 +79,12 @@ function show(self, menuItem)
 	return window
 end
 
-function showPodcastExport(self, previousMenu, menuItem, host, query)
+function showPodcastExport(self, previousMenu, menuItem, fileName)
 
 	local window = Window("text_list", menuItem.text)
 	local menu = SimpleMenu("menu")
 	window:addWidget(menu)
 
-	local FULL_URL = 'http://' .. host .. query
 	local newMenuItem, callbacks
 
 	callbacks = {
@@ -117,40 +115,22 @@ function showPodcastExport(self, previousMenu, menuItem, host, query)
 	}
 
 	local p = lxp.new(callbacks)
-	p:setencoding("ISO-8859-1")
 
-	local canceled = false
+	local filePath = System:findFile( PODCAST_EXPORT_PREFIX .. fileName )
+	local file, err = io.open( filePath )
 
-	local function sink(chunk, err)
-		if err then
-			log:warn( err )
-			menu:setHeaderWidget( Textarea( "help_text", self:string('HTTP_SINK_ERROR', FULL_URL, err) ) )
-			self:tieAndShowWindow(window)
-			previousMenu:unlock()
-		elseif chunk == nil then
-			p:parse()
-			p:close()
-			if not canceled then
-				self:tieAndShowWindow(window)
-			end
-			previousMenu:unlock()
-		else
-			--chunk = chunk:gsub("%<%?xml.-%?%>", "")
-			p:parse(chunk)
+	if file then
+
+		for line in file:lines() do
+			p:parse(line)
 		end
+
+	else
+		log:warn( err )
+		menu:setHeaderWidget( Textarea( "help_text", err ) )
 	end
 
-	local http = SocketHttp(jnt, host, 80)
-	local req = RequestHttp(sink, 'GET', query )
-
-	-- lock the previous menu till we load the file
-	previousMenu:lock( function()
-		canceled = true
-		http:close()
-	end )
-
-	-- go get it!
-	http:fetch(req)
+	self:tieAndShowWindow(window)
 end
 
 
