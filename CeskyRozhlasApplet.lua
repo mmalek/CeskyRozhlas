@@ -9,7 +9,7 @@
 -------------------------------------------------------------------------------
 
 -- stuff we use
-local assert, ipairs, pairs, string, type, io = assert, ipairs, pairs, string, type, io
+local assert, ipairs, pairs, string, table, type, io = assert, ipairs, pairs, string, table, type, io
 
 local oo                     = require("loop.simple")
 
@@ -23,6 +23,7 @@ local Icon                   = require("jive.ui.Icon")
 local Window                 = require("jive.ui.Window")
 local SimpleMenu             = require("jive.ui.SimpleMenu")
 local Textarea               = require("jive.ui.Textarea")
+local datetime               = require("jive.utils.datetime")
 local debug                  = require("jive.utils.debug")
 local Player                 = require("jive.slim.Player")
 local System                 = require("jive.System")
@@ -64,26 +65,15 @@ function show(self, menuItem)
 	local window = Window("text_list", menuItem.text)
 	local menu = SimpleMenu("menu")
 	
--- 	menu:setComparator(menu.itemComparatorAlpha)
-	menu:addItem( {
-		text = self:string('STATIONS'),
-		callback = function(event,menuItem) self:showPodcastExport(menu, menuItem, STATIONS_FILE) end
-	} )
-	menu:addItem( {
-		text = self:string('TOPICS'),
-		callback = function(event,menuItem) self:showPodcastExport(menu, menuItem, TEMATA_FILE) end
-	} )
+	self:showPodcastExport(menu, STATIONS_FILE)
+	self:showPodcastExport(menu, TEMATA_FILE)
+	
 	window:addWidget(menu)
-
 	self:tieAndShowWindow(window)
 	return window
 end
 
-function showPodcastExport(self, previousMenu, menuItem, fileName)
-
-	local window = Window("text_list", menuItem.text)
-	local menu = SimpleMenu("menu")
-	window:addWidget(menu)
+function showPodcastExport(self, menu, fileName)
 
 	local newMenuItem, callbacks
 
@@ -129,8 +119,6 @@ function showPodcastExport(self, previousMenu, menuItem, fileName)
 		log:warn( err )
 		menu:setHeaderWidget( Textarea( "help_text", err ) )
 	end
-
-	self:tieAndShowWindow(window)
 end
 
 
@@ -141,6 +129,7 @@ function showPodcastExportContent(self, previousMenu, menuItem, url)
 	window:addWidget(menu)
 
 	local newMenuItem, callbacks, insideRevHistory
+	local dateMenuItems = {}
 
 	callbacks = {
 		StartElement = function (parser, name, attr)
@@ -164,19 +153,40 @@ function showPodcastExportContent(self, previousMenu, menuItem, url)
 				insideRevHistory = true
 			elseif name == "date" and not insideRevHistory then
 				callbacks.CharacterData = function (parser, text)
-					if newMenuItem.text then
-						newMenuItem.text = text .. " " .. newMenuItem.text
-					else
-						newMenuItem.text = text
+					local b, e, day, month, year, hours, minutes = string.find( text, "(%d+)%.(%d+)%.(%d+) (%d+)%:(%d+)" )
+					if day and month and year and hours and minutes then
+						newMenuItem.date = { day = day, month = month, year = year }
+						newMenuItem.formattedDate = datetime:getShortDateFormat()
+						newMenuItem.formattedDate = string.gsub( newMenuItem.formattedDate, "%%d", day )
+						newMenuItem.formattedDate = string.gsub( newMenuItem.formattedDate, "%%m", month )
+						newMenuItem.formattedDate = string.gsub( newMenuItem.formattedDate, "%%Y", year )
+
+						newMenuItem.time = string.format("%02d:%02d", hours, minutes)
 					end
 				end
 			end
 		end,
 		EndElement = function (parser, name)
--- 			log:info( "endElement: " .. name )
 			callbacks.CharacterData = false
 			if name == "audioobject" then
-				menu:addItem( newMenuItem )
+				if newMenuItem.time then
+					if newMenuItem.text then
+						newMenuItem.text = newMenuItem.time .. " " .. newMenuItem.text
+					else
+						newMenuItem.text = newMenuItem.time
+					end
+				end
+
+				if newMenuItem.formattedDate then
+					local items = dateMenuItems[newMenuItem.formattedDate]
+					if items == nil then
+						items = {}
+					end
+					items[#items + 1] = newMenuItem
+					items.date = newMenuItem.date
+					items.formattedDate = newMenuItem.formattedDate
+					dateMenuItems[newMenuItem.formattedDate] = items
+				end
 			elseif name == "edition" then
 				insideRevHistory = false
 			end
@@ -198,11 +208,22 @@ function showPodcastExportContent(self, previousMenu, menuItem, url)
 			p:parse()
 			p:close()
 			if not canceled then
+				for key, item in pairs(dateMenuItems) do
+					menu:addItem( {
+						text = item.formattedDate,
+						date = item.date,
+						callback = function(event,menuItem) self:showPodcastItems(menuItem,item) end
+					} )
+				end
+				menu:setComparator( function(a, b)
+					return a.date.year > b.date.year or
+						a.date.month > b.date.month or
+						a.date.day > b.date.day
+				end )
 				self:tieAndShowWindow(window)
 			end
 			previousMenu:unlock()
 		else
--- 			log:info("parsing chunk " .. chunk)
 			p:parse(chunk)
 		end
 	end
@@ -219,5 +240,17 @@ function showPodcastExportContent(self, previousMenu, menuItem, url)
 	-- go get it!
 	http:fetch(req)
 
+	return window
+end
+
+function showPodcastItems(self, menuItem, subItems)
+
+	local window = Window("text_list", menuItem.text)
+	local menu = SimpleMenu("menu")
+	menu:setComparator(menu.itemComparatorAlpha)
+	menu:setItems(subItems)
+	window:addWidget(menu)
+
+	self:tieAndShowWindow(window)
 	return window
 end

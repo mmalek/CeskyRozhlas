@@ -2,16 +2,6 @@
 # The two letter codes are defined by ISO 639-1
 # http://en.wikipedia.org/wiki/List_of_ISO_639_codes
 
-STATIONS
-	CS	Stanice
-	EN	Stations
-	PL	Stacje
-
-TOPICS
-	CS	Témata
-	EN	Topics
-	PL	Tematy
-
 HTTP_SINK_ERROR
 	EN	Cannot load %s: %s
 	PL	Błąd podczas pobierania %s: %s
