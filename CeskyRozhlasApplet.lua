@@ -41,6 +41,18 @@ local PODCAST_QUERY = "/podcast/podcast_porady.php?p_po="
 
 local MEDIA_PREFIX = "http://media.rozhlas.cz/_audio"
 
+local LIVE_STREAMS = {
+	{ text = "Český rozhlas 1 - Radiožurnál", url = "http://www.rozhlas.cz/audio/download/cro1_high.mp3.m3u", icon = "http://www2.rozhlas.cz/podcast/img/podcast-radiozurnal.jpg" },
+	{ text = "Český rozhlas 2 - Praha",       url = "http://www.rozhlas.cz/audio/download/cro2_high.mp3.m3u", icon = "http://www2.rozhlas.cz/podcast/img/podcast-praha.jpg" },
+	{ text = "Český rozhlas 3 - Vltava",      url = "http://www.rozhlas.cz/audio/download/cro3_high.mp3.m3u", icon = "http://www2.rozhlas.cz/podcast/img/podcast-vltava.jpg" },
+	{ text = "Český rozhlas 6",               url = "http://www.rozhlas.cz/audio/download/cro6_highmp3.m3u", icon = "http://www2.rozhlas.cz/podcast/img/podcast-cro6.jpg" },
+	{ text = "Český rozhlas 7 - Radio Praha", url = "http://www.rozhlas.cz/audio/download/aac-cro7-128.m3u" },
+	{ text = "Český rozhlas Rádio Česko",     url = "http://www.rozhlas.cz/audio/download/radioCesko-highmp3.m3u" },
+	{ text = "Český rozhlas Leonardo",        url = "http://www.rozhlas.cz/audio/download/leonardo_high_mp3.m3u", icon = "http://www2.rozhlas.cz/podcast/img/podcast-leonardo.jpg" },
+	{ text = "Český rozhlas Radio Wave",      url = "http://www.rozhlas.cz/audio/download/radiowave_high_mp3.m3u" },
+	{ text = "Český rozhlas D-dur",           url = "http://www.rozhlas.cz/audio/download/ddur_high_mp3.m3u" }
+}
+
 local _streamCallback = function(event, menuItem)
 	local player = Player:getLocalPlayer()
 	local server = player:getSlimServer()
@@ -65,10 +77,36 @@ function show(self, menuItem)
 	local window = Window("text_list", menuItem.text)
 	local menu = SimpleMenu("menu")
 	
+	menu:addItem( {text = "Živé vysílání", callback = function(event,menuItem) self:showLiveStreams(menuItem) end } )
 	self:showPodcastExport(menu, STATIONS_FILE)
 	self:showPodcastExport(menu, TEMATA_FILE)
 	
 	window:addWidget(menu)
+	self:tieAndShowWindow(window)
+	return window
+end
+
+function showLiveStreams(self, menuItem)
+
+	local window = Window("text_list", menuItem.text)
+	local menu = SimpleMenu("menu")
+	window:addWidget(menu)
+
+	for _, stream in pairs(LIVE_STREAMS) do
+		local newMenuItem = {
+			text = stream.text,
+			stream = stream.url,
+			icon = Icon( "icon" ),
+			callback = _streamCallback,
+			cmCallback = function(event, menuItem) _streamContextMenuCallback(menuItem, self) end,
+			style = 'item_choice'
+		}
+		if stream.icon then
+			self.server:fetchArtwork( stream.icon, newMenuItem.icon, jiveMain:getSkinParam('THUMB_SIZE'), 'jpg' )
+		end
+		menu:addItem( newMenuItem )
+	end
+
 	self:tieAndShowWindow(window)
 	return window
 end
